@@ -5,18 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My College Portfolio</title>
     <style>
+        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f0f4f8;
+            color: #333;
+            box-sizing: border-box;
+            animation: fadeIn 1s ease-in-out;
         }
 
         header {
-            background-color: #685752;
+            background-color: #2b2d42;
             color: #fff;
             padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: slideInFromTop 1s ease-in-out;
         }
 
         nav {
@@ -27,35 +32,47 @@
 
         nav h1 {
             margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
         }
 
         nav ul {
-            list-style-type: none;
-            padding: 0;
+            list-style: none;
             display: flex;
+            padding: 0;
+            margin: 0;
         }
 
         nav ul li {
-            margin-left: 1rem;
+            margin-left: 1.5rem;
+            position: relative;
         }
 
         nav ul li a {
-            color: #fff;
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            color: #fff;
+            font-weight: bold;
+            padding: 0.8rem 1.2rem;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            background-color: #3e4a59;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         nav ul li a:hover,
         nav ul li a.active {
-            background-color: #555;
+            background-color: #f1b5c7;
+            transform: translateY(-3px);
         }
 
         main {
             padding: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 850px;
+            margin: 2rem auto;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h2, h3 {
+            color: #2d3047;
         }
 
         .content {
@@ -64,47 +81,96 @@
 
         .content.active {
             display: block;
+            animation: fadeInUp 1s ease-in-out;
         }
 
-        h2 {
+        .myIntro {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        .myIntro img {
+            width: 35%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .myIntro img:hover {
+            transform: scale(1.05);
+        }
+
+        .myIntro div {
+            flex: 1;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .myIntro h1 {
+            text-align: center;
+            font-size: 2.5rem;
             color: #333;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .myIntro p {
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.6;
+            text-align: justify;
+            padding-left: 20px;
+            font-family: 'Roboto', sans-serif;
         }
 
         footer {
-            background-color: #685752;
+            background-color: #2b2d42;
             color: #fff;
             text-align: center;
             padding: 1rem;
             position: fixed;
             bottom: 0;
             width: 100%;
+            animation: fadeInUp 1.8s ease-in-out;
         }
 
         img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
 
         /* Media Query for Responsive Layout */
         @media (max-width: 768px) {
-
             .myIntro {
-                display: flex;
                 flex-direction: column;
+                text-align: center;
             }
+
             .myIntro img {
-                width: 100%;
-                margin: 10px auto;
+                width: 60%;
+                margin: 10px 0;
+                border-radius: 50%;
             }
+
             nav {
                 flex-wrap: wrap;
+                justify-content: space-between;
             }
 
             nav ul {
                 display: none;
                 flex-direction: column;
                 width: 100%;
-                background-color: #1C325B;
+                background-color: #2b2d42;
                 margin-top: 1rem;
             }
 
@@ -115,10 +181,12 @@
             nav ul li {
                 margin-left: 0;
                 text-align: center;
+                width: 100%;
             }
 
             nav ul li a {
                 padding: 1rem;
+                width: 100%;
                 display: block;
             }
 
@@ -134,6 +202,77 @@
                 margin: 5px 0;
             }
         }
+
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInFromTop {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Home Section Custom Styles */
+        #home {
+            background: linear-gradient(135deg, rgba(123, 123, 255, 0.8), rgba(44, 154, 238, 0.8));
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            margin-bottom: 100px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1600x900') no-repeat center center/cover;
+            opacity: 0.15;
+            z-index: -1;
+            filter: blur(8px);
+        }
+
     </style>
 </head>
 <body>
@@ -155,21 +294,22 @@
     </header>
 
     <main>
-        <section id="home" class="content active" style="margin-bottom: 100px; padding: 20px; background: rgba(193, 186, 161, 0.45); backdrop-filter: blur(12px); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.2);">            
+        <section id="home" class="content active">
             <h2>Welcome to My College Portfolio</h2>
-            <div style="display:flex; margin-bottom: 20px; " class="myIntro">
-                <img src="./Pi7_Passport_Photo.jpeg" style="width:30%">
+            <div class="myIntro">
+                <img src="./Pi7_Passport_Photo.jpeg" alt="Vaishnavi Agrawal">
                 <div>
-                    <h1 style="text-align:center">Vaishnavi Agrawal</h1>
-                    <p style="padding-left:20px; font-size: 20px;">This portfolio showcases my academic journey and the subjects I've studied during my time in college. Over the years, I have developed a strong foundation in various technical domains, ranging from programming and networking to operating systems. Each section of this portfolio highlights not only the theoretical knowledge I've gained but also the practical projects that have helped me apply these concepts effectively.</p>
+                    <h1>Vaishnavi Agrawal</h1>
+                    <p>This portfolio reflects my academic journey and the diverse subjects I have studied throughout my time in college. Over the years, I have cultivated a solid foundation in several technical areas, including programming, networking, and operating systems. Each section of this portfolio not only demonstrates the theoretical knowledge I have acquired but also showcases the practical projects through which I have applied these concepts in real-world scenarios.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <section id="oops" class="content" style="margin-bottom: 100px">
+        <section id="oops" class="content">
             <h2>Object-Oriented Programming</h2>
             <p>
-                My journey into the world of Object-Oriented Programming (OOP) has been both challenging and rewarding. 
+            My journey into the world of Object-Oriented Programming (OOP) has been both challenging and rewarding. 
                 From understanding fundamental concepts to implementing real-world applications, OOP has shaped my problem-solving and design skills.
             </p>
             <h3>Core Concepts:</h3>
@@ -206,28 +346,13 @@
                     <b>E-commerce Backend:</b> Designed product catalogs and user authentication using OOP-based architecture.                </li>
             </ul>
         </section>
-        
 
-        <!-- <section id="cs" class="content">
-            <h2>Computer Science</h2>
-            <p>My exploration of computer science, from programming basics to advanced algorithms and software engineering.</p>
-            <h3>Courses Taken:</h3>
-            <ul>
-                <li>Introduction to Programming</li>
-                <li>Data Structures and Algorithms</li>
-                <li>Database Systems</li>
-                <li>Operating Systems</li>
-                <li>Software Engineering</li>
-            </ul>
-        </section> -->
-
-        <section id="networking" class="content" style="margin-bottom: 100px;">
+        <section id="networking" class="content">
             <h2>Networking</h2>
             <p>Networking forms the backbone of modern communication systems, enabling the transfer of data between devices, systems, and users worldwide. This section dives deep into the principles of networking, key protocols, configurations, and essential security mechanisms that ensure robust and reliable communication.</p>
-        
             <h3>Key Concepts:</h3>
             <h4>1. Network Protocols</h4>
-            <img src="data:image/png;base64,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" />
+            <img src="https://miro.medium.com/v2/resize:fit:1400/1*3ozvL1sPBO8MAH0LqtREKg.png">
             <p>Protocols define the rules for data communication. Common protocols include:</p>
             <ul>
                 <li><strong>TCP/IP:</strong> Foundation of internet communication, combining reliability (TCP) and speed (IP).</li>
@@ -257,7 +382,7 @@
             <p><em>Image Suggestion:</em> Illustration of a network with layers of security, showing firewalls, encryption paths, and VPN tunnels.</p>
             
             <h4>4. Routing and Switching</h4>
-            <img src="data:image/png;base64,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" />
+            <img src="https://images.javatpoint.com/tutorial/computer-network/images/switch-vs-router5.png"/>
             <p>Efficient data transmission between networks is facilitated by:</p>
             <ul>
                 <li><strong>Static and Dynamic Routing:</strong> Differences and when to use each.</li>
@@ -292,15 +417,59 @@
                 <li>Wireless Communication</li>
                 <li>Cloud Networking</li>
             </ul>
-        </section>
-        
 
-        <section id="os" class="content" style="margin-bottom: 100px;">
+                <h1>What is ARP?</h1>
+                <p><strong>Address Resolution Protocol (ARP)</strong> is used to map an IP address to its corresponding MAC (Media Access Control) address within a local network. It operates at the Data Link Layer (Layer 2) and is essential for devices to communicate with each other on an Ethernet network.</p>
+                <img src="https://www.cloudns.net/blog/wp-content/uploads/2023/05/How-Does-ARP-Work.png">
+                <h1>How ARP Works:</h1>
+                <ul>
+                    <li><strong>ARP Request:</strong> When a device (Host A) needs to communicate with another device (Host B) but only knows its IP address, it sends a broadcast ARP request asking, "Who has this IP address? Tell me your MAC address."</li>
+                    <li><strong>ARP Reply:</strong> The device with the matching IP address (Host B) responds with its MAC address.</li>
+                    <li><strong>ARP Table:</strong> Host A stores the IP-MAC mapping in its ARP table for future communication.</li>
+                    <li><strong>Communication:</strong> Host A can now send data to Host B using the obtained MAC address.</li>
+                </ul>
+            
+                <h1>ARP Table</h1>
+                <p>Devices maintain an ARP table to store IP-to-MAC address mappings. This table helps avoid repeated ARP requests.</p>
+    
+            <section>
+                <h1>Security Concerns:</h1>
+                <p>ARP is vulnerable to <span class="important">ARP spoofing</span> or <span class="important">ARP poisoning</span>, where an attacker sends false ARP messages to mislead devices about IP-MAC mappings. Security measures like <span class="important">static ARP entries</span> and <span class="important">dynamic ARP inspection (DAI)</span> help mitigate these risks.</p>
+            </section>
+    
+            <section>
+                <h1>ARP in IPv6:</h1>
+                <p>IPv6 replaces ARP with the <strong>Neighbor Discovery Protocol (NDP)</strong>, which serves the same function but is designed for IPv6 networks.</p>
+                <h2>The DORA Process in DHCP</h2>
+                <p>The <strong>DORA</strong> process is the sequence of steps used by DHCP (Dynamic Host Configuration Protocol) to assign an IP address to a client. Here’s a brief overview:</p>
+                <img src="https://media.licdn.com/dms/image/v2/D4D12AQEK5ZzE2SbT4Q/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1688885346955?e=2147483647&v=beta&t=_XG2JlhvEp5XOrKpeIIgL6wNEtbhkEpaxMYlICauXcA">
+                <h1>1. Discover (D)</h1>
+                <ul>
+                    <li>The client sends a <strong>DHCP Discover</strong> message to find available DHCP servers.</li>
+                </ul>
+                
+                <h1>2. Offer (O)</h1>
+                <ul>
+                    <li>The DHCP server responds with a <strong>DHCP Offer</strong> containing an available IP address and other network settings.</li>
+                </ul>
+                
+                <h1>3. Request (R)</h1>
+                <ul>
+                    <li>The client sends a <strong>DHCP Request</strong> to the server, accepting the offered IP address.</li>
+                </ul>
+                
+                <h1>4. Acknowledge (A)</h1>
+                <ul>
+                    <li>The server sends a <strong>DHCP Acknowledge</strong> message to confirm the IP assignment.</li>
+                </ul>
+                
+                <p>This process ensures automatic IP address assignment for devices on a network.</p>
+        </section>
+
+        <section id="os" class="content">
             <h2>Operating Systems</h2>
-            <p>
-                Operating Systems are the backbone of modern computing, acting as an interface between hardware and software while ensuring efficient resource management and user interaction. This journey explores core concepts, design principles, and implementation techniques.
-            </p>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR0wljURm97SMMr0FNZfTocWo0K1Ca-V-TDw&s" alt="" style="width: 100%; height: auto; display: block;">
+            <p> Operating Systems are the backbone of modern computing, acting as an interface between hardware and software while ensuring efficient resource management and user interaction. This journey explores core concepts, design principles, and implementation techniques.</p>
+            <img src="https://miro.medium.com/v2/resize:fit:360/1*rk1o0WQWtR1tEGcsEMIpEQ.png" alt="" style="width: 100%; height: auto; display: block;">
             <h3>Key Concepts:</h3>
             <ul>
                 <li>
@@ -337,8 +506,6 @@
                 </li>
             </ul>
         </section>
-        
-
     </main>
 
     <footer>
